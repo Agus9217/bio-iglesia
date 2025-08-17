@@ -45,7 +45,7 @@ export const Carousel = () => {
       {
         breakpoint: 1026,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           centerMode: true,
           centerPadding: "195px",
         },
