@@ -1,21 +1,20 @@
-'use client'
+'use client';
 
-import { Flex, Stack } from "@chakra-ui/react"
-import Image from "next/image"
-import logoImg from '@/assets/img/logo-iglesia.png'
-import { NavDesktop } from "./NavDesktop"
-import { useMotionValueEvent, useScroll } from "motion/react"
-import { useState } from "react"
-import { NavMobile } from "./NavMobile"
-import { Socials } from "../socials/Socials"
-
+import { Flex, Stack } from '@chakra-ui/react';
+import Image from 'next/image';
+import logoImg from '@/assets/img/logobioiglesia.png';
+import { NavDesktop } from './NavDesktop';
+import { useMotionValueEvent, useScroll } from 'motion/react';
+import { useState } from 'react';
+import { NavMobile } from './NavMobile';
+import { Socials } from '../socials/Socials';
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsScrolled(latest > 30)
-  })
+    setIsScrolled(latest > 30);
+  });
 
   return (
     <Stack
@@ -40,13 +39,11 @@ export const Navbar = () => {
         w={{ base: '1280px', '2xl': '1920px' }}
         color={'white'}
       >
-        <Flex
-          mr={4}
-        >
+        <Flex mr={4}>
           <Image
             src={logoImg}
-            width={150}
-            height={150}
+            width={100}
+            height={100}
             alt={'Logo de la iglesia de barrio nuevo'}
           />
         </Flex>
@@ -55,6 +52,5 @@ export const Navbar = () => {
         <NavMobile />
       </Stack>
     </Stack>
-  )
-}
-
+  );
+};

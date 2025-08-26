@@ -1,6 +1,7 @@
 import { barlow, bebas, lora } from '@/assets/font';
-import { AspectRatio, Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { AspectRatio, Box, Button, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import { AnimatedFlex, AnimatedHeading } from '../motion-components';
 
 export const Hero = () => {
   const aspectRatios = {
@@ -11,7 +12,11 @@ export const Hero = () => {
   };
 
   return (
-    <Box position={'relative'}>
+    <Box
+      as={'section'}
+      aria-label="Seccion del hero con descripcion de la iglesia"
+      position={'relative'}
+    >
       <AspectRatio
         ratio={[
           aspectRatios.base,
@@ -20,19 +25,19 @@ export const Hero = () => {
           aspectRatios.lg,
           aspectRatios.xl,
         ]}
-        w='100vw'
-        maxW='100%'
+        w="100vw"
+        maxW="100%"
       >
         <Box
-          as='picture'
-          display='block'
-          w='full'
-          h='full'
+          as="picture"
+          display="block"
+          w="full"
+          h="full"
           filter={'brightness(40%)'}
         >
           {/* Móvil */}
           <source
-            media='(max-width: 640px)'
+            media="(max-width: 640px)"
             srcSet={`
             /hero-iglesia-mobile-640.webp 640w,
             /hero-iglesia-mobile-900.webp 900w
@@ -41,7 +46,7 @@ export const Hero = () => {
 
           {/* Tablet */}
           <source
-            media='(max-width: 1280px)'
+            media="(max-width: 1280px)"
             srcSet={`
             /hero-iglesia-tablet-1024.webp 1024w,
             /hero-iglesia-tablet-1280.webp 1280w
@@ -50,7 +55,7 @@ export const Hero = () => {
 
           {/* Desktop */}
           <source
-            media='(max-width: 1920px)'
+            media="(max-width: 1920px)"
             srcSet={`
             /hero-iglesia-desktop-1920.webp 1920w,
             /hero-iglesia-desktop-2560.webp 2560w
@@ -59,15 +64,15 @@ export const Hero = () => {
 
           {/* 4K/Ultra HD - Tamaño 2560x1440 */}
           <Image
-            src='/hero-iglesia-ultra-3440.webp'
-            alt='Imagen hero responsiva de la iglesia'
+            src="/hero-iglesia-ultra-3440.webp"
+            alt="Imagen hero responsiva de la iglesia"
             fill
             priority
             quality={90}
-            sizes='(max-width: 640px) 100vw, 
+            sizes="(max-width: 640px) 100vw, 
                  (max-width: 1024px) 100vw, 
                  (max-width: 1920px) 100vw, 
-                 100vw'
+                 100vw"
             style={{
               objectFit: 'cover',
               objectPosition: 'center top',
@@ -89,37 +94,67 @@ export const Hero = () => {
         px={{ md: 4 }}
         gap={{ base: 4, md: 8, lg: '55px', xl: '95px' }}
       >
-        <Heading
+        <AnimatedHeading
           fontFamily={`${bebas.style.fontFamily}`}
           fontSize={{ base: '5xl', md: '7xl', lg: '100px', xl: '150px' }}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
         >
           Bienvenido
-        </Heading>
-        <Heading
+        </AnimatedHeading>
+        <AnimatedHeading
           fontFamily={`${bebas.style.fontFamily}`}
           fontSize={{ base: '5xl', md: '7xl', lg: '100px', xl: '150px' }}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
         >
           a nuestra iglesia
-        </Heading>
-        <Heading
-          fontFamily={`${bebas.style.fontFamily}`}
+        </AnimatedHeading>
+        <AnimatedHeading
+          fontFamily={bebas.style.fontFamily}
           color={'yellow.400'}
           fontSize={{ base: '5xl', md: '7xl', lg: '100px', xl: '150px' }}
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
         >
           tu iglesia
-        </Heading>
-        <Heading
+        </AnimatedHeading>
+        <AnimatedHeading
           as={'h1'}
           fontFamily={`${barlow.style.fontFamily}`}
           fontSize={{ base: '22px', md: '28px', xl: '32px' }}
           fontWeight={600}
           textTransform={'none'}
           py={{ base: 6, md: 3, lg: 0 }}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
         >
-          Iglesia Cristiana de Barrio Nuevo
-        </Heading>
-        <Flex
+          Bioiglesia - Iglesia Cristiana en Barrio Nuevo
+        </AnimatedHeading>
+        <AnimatedFlex
           justifyContent={{ base: 'center', md: 'left' }}
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: 'easeOut',
+          }}
         >
           <Button
             textTransform={'uppercase'}
@@ -131,14 +166,14 @@ export const Hero = () => {
             rounded={'none'}
             _hover={{
               color: 'black',
-              bg: 'white'
+              bg: 'white',
             }}
           >
             Comunicate con nosotros
           </Button>
-        </Flex>
+        </AnimatedFlex>
       </Flex>
-      <Flex
+      <AnimatedFlex
         position={'absolute'}
         display={{ base: 'none', md: 'flex' }}
         bottom={0}
@@ -155,6 +190,12 @@ export const Hero = () => {
         pr={{ md: '30px' }}
         pb={{ md: '20px', xl: '30px' }}
         roundedTopLeft={{ md: '100px', xl: '250px' }}
+        initial={{ x: 50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          ease: 'easeOut',
+        }}
       >
         <Text
           color={'black'}
@@ -180,7 +221,7 @@ export const Hero = () => {
         >
           Te esperamos, no faltes.
         </Text>
-      </Flex>
+      </AnimatedFlex>
     </Box>
   );
 };
