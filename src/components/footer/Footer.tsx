@@ -119,7 +119,13 @@ export const Footer = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Flex justifyContent={'center'} alignItems={'center'} gap={4}>
+      <Flex
+        textAlign={'center'}
+        flexDir={{ base: 'column', md: 'row' }}
+        justifyContent={'center'}
+        alignItems={'center'}
+        gap={4}
+      >
         <Image
           src={'/logobioiglesia.png'}
           alt="Logo de la iglesia"
