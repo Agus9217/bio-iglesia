@@ -10,7 +10,7 @@ interface AnimatedHeadingProps extends CombinedProps {
   children: ReactNode;
 }
 
-const MotionFlex = motion(Flex);
+const MotionFlex = motion.create(Flex);
 
 export const AnimatedFlex = ({ children, ...props }: AnimatedHeadingProps) => {
   return <MotionFlex {...props}>{children}</MotionFlex>;

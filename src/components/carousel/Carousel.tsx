@@ -4,17 +4,17 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { Box, Flex } from '@chakra-ui/react';
-import maaocImg from '@/assets/img/ministerios/maaoc.png';
-import ediImg from '@/assets/img/ministerios/escuela-edi.png';
-import extremadosImg from '@/assets/img/ministerios/extremados.png';
-import mayordomiaImg from '@/assets/img/ministerios/mayordomia.png';
-import intercesionImg from '@/assets/img/ministerios/intercesion.png';
-import piedraImg from '@/assets/img/ministerios/piedra-angular.png';
-import estimulosImg from '@/assets/img/ministerios/estimulos-espirituales.png';
-import gruposImg from '@/assets/img/ministerios/grupos-la-red.png';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
-export const Carousel = () => {
+interface Props {
+  images: StaticImageData[];
+  altText?: string;
+}
+
+export const Carousel = ({
+  images,
+  altText = 'Logo del ministerio',
+}: Props) => {
   const settings = {
     className: 'center',
     centerMode: true,
@@ -27,7 +27,7 @@ export const Carousel = () => {
     cssEase: 'linear',
     responsive: [
       {
-        breakpoint: 480,
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           centerMode: true,
@@ -61,21 +61,10 @@ export const Carousel = () => {
     ],
   };
 
-  const boxes = [
-    maaocImg,
-    extremadosImg,
-    ediImg,
-    piedraImg,
-    estimulosImg,
-    intercesionImg,
-    mayordomiaImg,
-    gruposImg,
-  ];
-
   return (
     <Box w={'100%'} overflowX={'hidden'}>
       <Slider {...settings}>
-        {boxes.map((item, index) => (
+        {images.map((item, index) => (
           <Flex key={index} p={2}>
             <Box
               maxW={'626px'}
@@ -85,7 +74,7 @@ export const Carousel = () => {
             >
               <Image
                 src={item}
-                alt="Imagen del ministerio"
+                alt={altText}
                 style={{
                   borderRadius: '20px',
                   width: '100%',

@@ -10,7 +10,7 @@ interface AnimatedHeadingProps extends CombinedProps {
   children: ReactNode;
 }
 
-const MotionHeading = motion(Heading);
+const MotionHeading = motion.create(Heading);
 
 export const AnimatedHeading = ({
   children,
