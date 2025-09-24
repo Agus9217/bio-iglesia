@@ -95,7 +95,7 @@ export const Footer = () => {
           <Flex flexDir={{ base: 'column' }} gap={4}>
             <Heading fontFamily={barlow.style.fontFamily}>Dirección</Heading>
             <Text fontFamily={lora.style.fontFamily}>
-              Honduras 2010, Libertad, Merlo
+              Honduras 2004, Libertad, Merlo
             </Text>
           </Flex>
           <Flex
